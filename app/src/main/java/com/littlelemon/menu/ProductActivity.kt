@@ -8,8 +8,8 @@ class ProductActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val productItem =
-            ProductItem("", 0.0, "", -1)//todo replace with the passed values from intent
+        val productItem = intent.getStringExtra("product_item")
+
         setContent { ProductDetails(productItem) }
     }
 }
