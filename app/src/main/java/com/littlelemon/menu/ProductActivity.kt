@@ -8,8 +8,12 @@ class ProductActivity : ComponentActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        val productItem = intent.getStringExtra("product_item")
+        val productItem = intent.getParcelableExtra<ProductItem>("product_item")
 
-        setContent { ProductDetails(productItem) }
+        setContent {
+            if (productItem != null) {
+                ProductDetails(productItem)
+            }
+        }
     }
 }
